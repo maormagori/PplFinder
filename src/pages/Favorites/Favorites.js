@@ -2,7 +2,7 @@ import Text from "components/Text";
 import UserList from "components/UserList";
 import * as S from "./style";
 import { useFavoritePicker } from "hooks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Snackbar } from "@material-ui/core";
 
 const Favorites = () => {
