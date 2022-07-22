@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Text from "components/Text";
 import Spinner from "components/Spinner";
-import CheckBox from "components/CheckBox";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import * as S from "./style";
@@ -9,9 +8,6 @@ import * as S from "./style";
 const UserList = ({
   users,
   isLoading,
-  setUserCountries,
-  userCountries,
-  countries,
   addOrRemoveFavorite,
   isUserFavorite,
   infiniteScroll,
@@ -27,32 +23,8 @@ const UserList = ({
     setHoveredUserId();
   };
 
-  // Country checkboxes' onChange event handler.
-  const onCountryValueChange = (countryCode) => {
-    // Based on if the value is present in the userCountries array,
-    // add or remove changed checkbox's value.
-    if (!userCountries.includes(countryCode))
-      setUserCountries([...userCountries, countryCode]);
-    else
-      setUserCountries(
-        userCountries.filter((countryCodeEl) => countryCodeEl != countryCode)
-      );
-  };
-
   return (
     <S.UserList>
-      <S.Filters>
-        {countries?.map(({ country, nat }) => {
-          return (
-            <CheckBox
-              value={nat}
-              label={country}
-              onChange={onCountryValueChange}
-              key={nat}
-            />
-          );
-        })}
-      </S.Filters>
       <S.List>
         {users.map((user, index) => {
           return (

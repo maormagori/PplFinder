@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import Text from "components/Text";
 import UserList from "components/UserList";
+import CountriesSelector from "components/CountriesSelector";
 import { useFavoritePicker, usePeopleFetch } from "hooks";
 import * as S from "./style";
 import { NATIONALITIES as countries } from "constant";
@@ -35,12 +36,14 @@ const Home = () => {
             PplFinder
           </Text>
         </S.Header>
-        <UserList
-          users={users}
-          isLoading={isLoading}
+        <CountriesSelector
           setUserCountries={setUserCountries}
           userCountries={userCountries}
           countries={countries}
+        />
+        <UserList
+          users={users}
+          isLoading={isLoading}
           addOrRemoveFavorite={addOrRemoveFavorite}
           isUserFavorite={isUserFavorite}
           infiniteScroll={true}
