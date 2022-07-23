@@ -1,4 +1,5 @@
 {
+  "homepage": "https://maormagori.github.io/PplFinder",
   "name": "ppl-finder",
   "version": "1.0.7",
   "bin": "./bin/cli.js",
